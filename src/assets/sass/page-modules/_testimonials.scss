@@ -6,10 +6,10 @@
     position: relative;
     background-position: center;
     background-attachment: fixed;
-    background-image: url(/src/assets/img/svg/montanhazon.jpg);
+    background-image: url(assets/img/svg/montanhazon.jpg);
 
     @include max(800) {
-        background-image: url(/src/assets/img/svg/montanha_11zon.jpg);
+        background-image: url(assets/img/svg/montanha_11zon.jpg);
     }
 
     &::before {
