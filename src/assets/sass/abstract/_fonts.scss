@@ -1,0 +1,80 @@
+@use 'variables' as *;
+
+@mixin font-sm-regular {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-initial;
+  font-family: $primary-font;
+}
+
+@mixin font-title-sm-spaced {
+  font-weight: $font-weight-medium-one;
+  font-size: $font-size-sm-two;
+  letter-spacing: 0.05em;
+  font-family: $primary-font;
+}
+
+@mixin font-bold-sm {
+  font-size: $font-size-sm-two;
+  font-weight: $font-weight-bold;
+  font-family: $primary-font;
+}
+
+@mixin font-footer-link {
+  font-size: $font-size-sm-one;
+  font-weight: $font-weight-regular;
+  font-family: $primary-font;
+}
+
+@mixin font-regular-sm {
+  font-size: $font-size-sm-two;
+  font-weight: $font-weight-regular;
+  font-family: $primary-font;
+}
+
+@mixin font-header-li {
+  font-size: $font-size-sm-two;
+  font-weight: $font-weight-regular;
+  font-family: $primary-font;
+}
+
+@mixin font-paragraph-bold {
+  font-size: $font-size-sm-one;
+  font-weight: $font-weight-bold;
+  font-family: $primary-font;
+}
+
+@mixin font-caption {
+  font-size: $font-size-sm-three;
+  font-weight: $font-weight-regular;
+  font-family: $primary-font;
+}
+
+@mixin font-secondary-sm {
+  font-size: $font-size-sm-two;
+  font-weight: $font-weight-regular;
+  font-family: $secundary-font;
+}
+
+@mixin font-ultra-xl {
+  font-size: $font-size-ultra;
+  font-weight: $font-weight-ultra;
+  font-family: $primary-font;
+}
+
+@mixin font-content-base {
+  font-size: $font-size-md-one;
+  font-weight: $font-weight-regular;
+  font-family: $primary-font;
+}
+
+@mixin font-md-bold {
+  font-size: $font-size-md-one;
+  font-weight: $font-weight-bold;
+  font-family: $primary-font;
+}
+
+@mixin font-title-lg {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  font-family: $primary-font;
+}

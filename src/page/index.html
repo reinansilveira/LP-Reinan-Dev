@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfólio profissional com projetos em desenvolvimento web, landing pages, WordPress, PHP, JavaScript e interfaces modernas focadas em alta performance.">
+    <title>Reinan dev</title>
+
+    <link rel="icon" href="/src/assets/img/svg/logo-orx 1 (1).png">
+    <link rel="stylesheet" href="/src/assets/css/reset.css">
+    <link rel="stylesheet" href="/src/assets/css/page-modules/index.css">
+    <link rel="stylesheet" href="/src/assets/css/layout/index.css">
+
+    <script>
+
+        (function () {
+
+            if (window.__BLOCK_SCRIPTS__) return;
+            window.__BLOCK_SCRIPTS__ = true;
+
+            const blocked = [];
+            const allowList = [];
+
+            const originalCreate = document.createElement;
+
+            document.createElement = function (tag) {
+                const el = originalCreate.call(document, tag);
+
+                if (tag.toLowerCase() === 'script') {
+
+                    let _src = '';
+
+                    Object.defineProperty(el, 'src', {
+                        get() {
+                            return _src;
+                        },
+                        set(value) {
+                            if (
+                                value &&
+                                !allowList.some(a => value.includes(a))
+                            ) {
+                                blocked.push(value);
+                                _src = '';
+                                return;
+                            }
+
+                            _src = value;
+                        }
+                    });
+
+                }
+
+                return el;
+            };
+
+            function releaseScripts() {
+                if (window.__RELEASED__) return;
+                window.__RELEASED__ = true;
+
+                document.createElement = originalCreate;
+
+                blocked.forEach(src => {
+                    const s = originalCreate.call(document, 'script');
+                    s.src = src;
+                    s.async = true;
+                    document.body.appendChild(s);
+                });
+            }
+
+            ['click', 'scroll', 'mousemove', 'keydown', 'touchstart'].forEach(e =>
+                window.addEventListener(e, releaseScripts, { once: true, passive: true })
+            );
+            setTimeout(releaseScripts, 9000);
+
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    </noscript>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    </noscript>
+    <link rel="preload" as="image" href="/src/assets/img/svg/simple-apple-macbook-air-m2-13_1_400x300_11zon (2).webp">
+
+    <!-- Organization -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Reinan Dev","alternateName":"ReinanDev","url":"https://reinandev.com.br","logo":"https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp","image":"https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp","description":"Desenvolvimento de landing pages profissionais otimizadas para conversão em 7 dias úteis. Performance 100/100 garantida, sem mensalidade.","founder":{"@type":"Person","name":"Reinan Silveira","jobTitle":"Desenvolvedor Web Full Stack","email":"reinanlanz@gmail.com"},"foundingDate":"2025-12-28","address":{"@type":"PostalAddress","streetAddress":"Rua Santa Catarina, 257","addressLocality":"Aracaju","addressRegion":"SE","postalCode":"49075-520","addressCountry":"BR"},"contactPoint":{"@type":"ContactPoint","telephone":"+55-79-99901-4074","contactType":"Customer Service","email":"reinanlanz@gmail.com","availableLanguage":["Portuguese"],"areaServed":"BR","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}},"sameAs":["https://www.instagram.com/reinandev/","https://www.linkedin.com/in/reinan-santana-24ab05301/","https://api.whatsapp.com/send?phone=5579999014074"],"areaServed":{"@type":"Country","name":"Brasil"}}</script>
+
+    <!-- ProfessionalService -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reinan Dev - Landing Pages Profissionais","alternateName":"ReinanDev Desenvolvimento Web","image":"https://reinandev.com.br/src/assets/img/svg/reinan-de-terno_340x595.avif","description":"Landing pages otimizadas que transformam visitantes em clientes pagantes. Performance 100/100 garantida. Entrega em 7 dias úteis. Sem mensalidade.","priceRange":"R$ 497","telephone":"+55-79-99901-4074","email":"reinanlanz@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Rua Santa Catarina, 257","addressLocality":"Aracaju","addressRegion":"SE","postalCode":"49075-520","addressCountry":"BR"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":["Desenvolvimento de Landing Pages","Criação de Sites Profissionais","Otimização SEO","Web Design Responsivo"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços de Desenvolvimento Web","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Landing Page Profissional","description":"Site sob medida otimizado para conversão, entrega em 7 dias úteis com performance 100/100","provider":{"@type":"Organization","name":"Reinan Dev"}},"price":"497","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://reinandev.com.br"}]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","ratingCount":"200"}}</script>
+
+    <!-- Person -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Reinan Silveira","alternateName":"Reinan Santana","url":"https://reinandev.com.br","image":"https://reinandev.com.br/src/assets/img/svg/reinan-de-terno_340x595.avif","jobTitle":"Desenvolvedor Web Full Stack","description":"Desenvolvedor especializado em performance, UX e otimização de conversão. Formado em Análise e Desenvolvimento de Sistemas. Mais de 200 projetos entregues.","email":"reinanlanz@gmail.com","telephone":"+55-79-99901-4074","address":{"@type":"PostalAddress","addressLocality":"Aracaju","addressRegion":"SE","addressCountry":"BR"},"alumniOf":{"@type":"EducationalOrganization","name":"Análise e Desenvolvimento de Sistemas"},"knowsAbout":["Desenvolvimento Web","HTML5","CSS3","JavaScript","React","Performance Web","SEO","UX Design","Landing Pages","Otimização de Conversão"],"sameAs":["https://www.instagram.com/reinandev/","https://www.linkedin.com/in/reinan-santana-24ab05301/"],"worksFor":{"@type":"Organization","name":"Reinan Dev"}}</script>
+
+    <!-- FAQPage -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Por que vocês não usam Elementor, WordPress ou construtores prontos?","acceptedAnswer":{"@type":"Answer","text":"Simples: performance mata conversão. Sites feitos em construtores carregam toneladas de código desnecessário, scripts pesados e plugins que deixam sua página lenta. O Google prova que cada segundo a mais de carregamento reduz suas vendas em até 20%. Nosso código é 100% limpo, otimizado e feito à mão. Resultado? Pontuação máxima no Google PageSpeed, carregamento instantâneo e mais vendas no seu bolso."}},{"@type":"Question","name":"Em quanto tempo minha landing page fica pronta?","acceptedAnswer":{"@type":"Answer","text":"7 dias úteis e sua página está no ar, vendendo. Esse prazo inclui design exclusivo, desenvolvimento, otimização completa, testes de performance e publicação. Diferente de agências que levam meses enrolando, aqui você tem agilidade sem perder qualidade."}},{"@type":"Question","name":"Preciso pagar mensalidade ou renovação?","acceptedAnswer":{"@type":"Answer","text":"ZERO mensalidade. Você paga R$ 497 uma única vez e sua landing page é 100% sua para sempre. Sem pegadinhas, sem cobranças escondidas, sem renovações anuais. Hospedagem premium está inclusa, domínio personalizado está incluso, suporte técnico está incluso. Tudo incluído no investimento único."}},{"@type":"Question","name":"Minha página vai aparecer no Google mesmo?","acceptedAnswer":{"@type":"Answer","text":"Não só vai aparecer - vai dominar. Todas as nossas páginas são otimizadas com SEO profissional: meta tags perfeitas, schema markup, velocidade de carregamento instantânea, responsividade impecável e estrutura validada pelo próprio Google. Resultado: Pontuação 100/100 em Performance, SEO, Acessibilidade e Melhores Práticas. Isso significa tráfego orgânico qualificado chegando sem você gastar um centavo em anúncios."}},{"@type":"Question","name":"E se eu quiser fazer mudanças depois?","acceptedAnswer":{"@type":"Answer","text":"Você tem 30 dias de revisões ilimitadas inclusos após a entrega. Quer ajustar um texto? Trocar uma imagem? Mudar uma cor? Sem problemas e sem custo adicional. Depois desse período, oferecemos pacotes de manutenção flexíveis ou cobramos apenas pelas alterações que você solicitar."}},{"@type":"Question","name":"Vocês criam o design ou eu preciso enviar pronto?","acceptedAnswer":{"@type":"Answer","text":"Criamos tudo do zero para você. Design exclusivo, identidade visual alinhada à sua marca, copywriting persuasivo e estrutura pensada para converter. Você só precisa nos contar sobre seu negócio e objetivos. Nossa equipe de designers e copywriters cria uma landing page única e otimizada para vendas."}},{"@type":"Question","name":"Funciona no celular? E em todos os navegadores?","acceptedAnswer":{"@type":"Answer","text":"Absolutamente perfeito em todos os dispositivos. Celular, tablet, desktop - sua página vai carregar rápido e bonita em qualquer tela. E sim, funciona em Chrome, Safari, Firefox, Edge e todos os navegadores modernos. Mais de 70% das vendas online vêm de mobile hoje. Por isso testamos exaustivamente cada pixel em diferentes dispositivos antes de entregar."}},{"@type":"Question","name":"Como funciona a integração com formulários e pagamentos?","acceptedAnswer":{"@type":"Answer","text":"Integramos com todas as principais ferramentas: WhatsApp, E-mail, Google Sheets, Hotmart, Eduzz, Monetizze, Kiwify, Stripe, PagSeguro e muito mais. Os leads chegam direto no seu WhatsApp ou e-mail em tempo real. Vendas são rastreadas automaticamente. Tudo configurado e testado por nós."}},{"@type":"Question","name":"Qual a garantia de que vai funcionar para o MEU negócio?","acceptedAnswer":{"@type":"Answer","text":"Já entregamos mais de 200+ projetos em nichos variados: advocacia, consultoria, saúde, e-commerce, infoprodutos, serviços locais e muito mais. Nossos clientes relatam aumentos médios de 340% em conversões. Trabalhamos com estratégias comprovadas de copywriting, design persuasivo e arquitetura de conversão. E se não estiver satisfeito? Temos garantia de reembolso nos primeiros 7 dias."}}]}</script>
+
+    <!-- Product com Reviews -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Landing Page Profissional - Reinan Dev","description":"Landing page otimizada para conversão, desenvolvida em 7 dias úteis com performance 100/100 no Google PageSpeed. Inclui hospedagem, domínio e suporte técnico.","image":"https://reinandev.com.br/src/assets/img/svg/simple-apple-macbook-air-m2-13_1_400x300_11zon (2).webp","brand":{"@type":"Brand","name":"Reinan Dev"},"offers":{"@type":"Offer","price":"497.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://reinandev.com.br","priceValidUntil":"2026-12-31","seller":{"@type":"Organization","name":"Reinan Dev"},"itemCondition":"https://schema.org/NewCondition"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","worstRating":"1","ratingCount":"200","reviewCount":"200"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Allan Ribeiro"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Estou com a ReinanDev a 8 meses, toda semana faço 2 LandingPages com eles, consegui escalar minha operação de ROI 1,7 para ROI 6 com as páginas da ReinanDev. Velocidade, estrutura, e designer. São pra mim os melhores pontos da ReinanDev.","datePublished":"2025-04-15"},{"@type":"Review","author":{"@type":"Person","name":"Flávia"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Os meninos da ReinanDev criam páginas otimizada para os meus produto que trouxe resultados rápidos. A qualidade do site e a atenção aos detalhes foram fundamentais para aumentar minhas vendas.","datePublished":"2025-05-10"},{"@type":"Review","author":{"@type":"Person","name":"Celso"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Trabalhar com a ReinanDev foi essencial para fazer minha logística de dropshipping alavancar. Ter um site aumentou minhas vendas já no primeiro em 62%.","datePublished":"2025-06-20"}]}</script>
+
+    <!-- Breadcrumb -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reinandev.com.br"},{"@type":"ListItem","position":2,"name":"Sobre","item":"https://reinandev.com.br#sobre"},{"@type":"ListItem","position":3,"name":"Portfólio","item":"https://reinandev.com.br#portfolio"},{"@type":"ListItem","position":4,"name":"Avaliações","item":"https://reinandev.com.br#avaliacoes"},{"@type":"ListItem","position":5,"name":"FAQ","item":"https://reinandev.com.br#faq"}]}</script>
+
+    <!-- WebSite -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Reinan Dev - Landing Pages Profissionais","alternateName":"ReinanDev","url":"https://reinandev.com.br","description":"Desenvolvimento de landing pages profissionais com performance 100/100 no Google. Entrega em 7 dias úteis. Sem mensalidade.","publisher":{"@type":"Organization","name":"Reinan Dev","logo":{"@type":"ImageObject","url":"https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp"}},"potentialAction":{"@type":"SearchAction","target":"https://reinandev.com.br?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+
+    <!-- LocalBusiness -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Reinan Dev","image":"https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp","description":"Desenvolvimento de landing pages profissionais com performance 100/100. Atendimento online para todo o Brasil.","address":{"@type":"PostalAddress","streetAddress":"Rua Santa Catarina, 257","addressLocality":"Aracaju","addressRegion":"SE","postalCode":"49075-520","addressCountry":"BR"},"telephone":"+55-79-99901-4074","email":"reinanlanz@gmail.com","url":"https://reinandev.com.br","priceRange":"R$ 497","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"geo":{"@type":"GeoCoordinates","latitude":"-10.9472","longitude":"-37.0731"},"areaServed":{"@type":"Country","name":"Brasil"}}</script>
+
+    <script>
+        window.addEventListener('load', function () {
+            const schemas = [
+                // Organization
+                { "@context": "https://schema.org", "@type": "Organization", "name": "Reinan Dev", "alternateName": "ReinanDev", "url": "https://reinandev.com.br", "logo": "https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp", "image": "https://reinandev.com.br/src/assets/img/svg/reinandev_81x81.webp", "description": "Desenvolvimento de landing pages profissionais otimizadas para conversão em 7 dias úteis. Performance 100/100 garantida, sem mensalidade.", "founder": { "@type": "Person", "name": "Reinan Silveira", "jobTitle": "Desenvolvedor Web Full Stack", "email": "reinanlanz@gmail.com" }, "foundingDate": "2025-12-28", "address": { "@type": "PostalAddress", "streetAddress": "Rua Santa Catarina, 257", "addressLocality": "Aracaju", "addressRegion": "SE", "postalCode": "49075-520", "addressCountry": "BR" }, "contactPoint": { "@type": "ContactPoint", "telephone": "+55-79-99901-4074", "contactType": "Customer Service", "email": "reinanlanz@gmail.com", "availableLanguage": ["Portuguese"], "areaServed": "BR", "hoursAvailable": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" } }, "sameAs": ["https://www.instagram.com/reinandev/", "https://www.linkedin.com/in/reinan-santana-24ab05301/", "https://api.whatsapp.com/send?phone=5579999014074"], "areaServed": { "@type": "Country", "name": "Brasil" } },
+
+                // FAQPage (o mais importante para rich snippets)
+                { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "Por que vocês não usam Elementor, WordPress ou construtores prontos?", "acceptedAnswer": { "@type": "Answer", "text": "Simples: performance mata conversão. Sites feitos em construtores carregam toneladas de código desnecessário, scripts pesados e plugins que deixam sua página lenta. O Google prova que cada segundo a mais de carregamento reduz suas vendas em até 20%. Nosso código é 100% limpo, otimizado e feito à mão. Resultado? Pontuação máxima no Google PageSpeed, carregamento instantâneo e mais vendas no seu bolso." } }, { "@type": "Question", "name": "Em quanto tempo minha landing page fica pronta?", "acceptedAnswer": { "@type": "Answer", "text": "7 dias úteis e sua página está no ar, vendendo. Esse prazo inclui design exclusivo, desenvolvimento, otimização completa, testes de performance e publicação. Diferente de agências que levam meses enrolando, aqui você tem agilidade sem perder qualidade." } }, { "@type": "Question", "name": "Preciso pagar mensalidade ou renovação?", "acceptedAnswer": { "@type": "Answer", "text": "ZERO mensalidade. Você paga R$ 497 uma única vez e sua landing page é 100% sua para sempre. Sem pegadinhas, sem cobranças escondidas, sem renovações anuais. Hospedagem premium está inclusa, domínio personalizado está incluso, suporte técnico está incluso. Tudo incluído no investimento único." } }] },
+
+                // Product com Reviews
+                { "@context": "https://schema.org", "@type": "Product", "name": "Landing Page Profissional - Reinan Dev", "description": "Landing page otimizada para conversão, desenvolvida em 7 dias úteis com performance 100/100 no Google PageSpeed. Inclui hospedagem, domínio e suporte técnico.", "image": "https://reinandev.com.br/src/assets/img/svg/simple-apple-macbook-air-m2-13_1_400x300_11zon (2).webp", "brand": { "@type": "Brand", "name": "Reinan Dev" }, "offers": { "@type": "Offer", "price": "497.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://reinandev.com.br", "priceValidUntil": "2026-12-31", "seller": { "@type": "Organization", "name": "Reinan Dev" }, "itemCondition": "https://schema.org/NewCondition" }, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "worstRating": "1", "ratingCount": "200", "reviewCount": "200" } }
+            ];
+
+            schemas.forEach(schema => {
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.text = JSON.stringify(schema);
+                document.head.appendChild(script);
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__container">
+            <h1>
+                <img src="/src/assets/img/svg/reinandev" alt="Logo Reinan Dev" width="38" height="46" srcset="
+    /src/assets/img/svg/reinandev_81x81.webp 400w,
+    /src/assets/img/svg/reinandev_81x81.webp 648w,
+    /src/assets/img/svg/reinandev_81x81.webp 800w
+  " sizes="(max-width: 768px) 90vw, 648px" loading="lazy" decoding="async">
+            </h1>
+            <button class="header__button" aria-label="Abrir menu">
+                <span style="transform: none; border-radius: 5px;"></span>
+                <span style="opacity: 1; transform: none;"></span>
+                <span style="transform: none; border-radius: 5px;"></span>
+            </button>
+            <ul>
+                <li><a href="#portfolio" class="cta-header">Nossos Cases</a></li>
+                <li><a href="#avaliacoes" class="cta-header">Avaliações</a></li>
+                <li><a href="#sobre" class="cta-header">Sobre</a></li>
+                <li><a href="#faq" class="cta-header">Faq</a></li>
+            </ul>
+        </nav>
+        <div class="header__menu-overlay">
+        </div>
+    </header>
+    <main>
+
+        <section class="hero">
+            <div class="hero__container">
+                <div>
+                    <h2>Site profissional sob medida em <span class="highlight">7 Dias</span> úteis para você começar a
+                        vender online</h2>
+                    <p>Landing pages otimizadas que transformam visitantes em clientes pagantes. Sem mensalidade. Sem
+                        código. Só o site que você precisa para começar a vender hoje.</p>
+                    <a href="https://api.whatsapp.com/send?phone=557999014074&text=Desejo%20saber%20mais."
+                        class="cta-primary">Quero Vender Mais Agora!
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 5L19 12L12 19" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero__devices-wrapper">
+                    <img src="/src/assets/img/svg/simple-apple-macbook-air-m2-13_1_400x300_11zon (2).webp"
+                        alt="Site desenvolvido por ReinanDev" width="660" height="500" loading="eager"
+                        fetchpriority="high">
+                    <img src="/src/assets/img/svg/iphone-coin-spin_cropped_11zon (3).webp"
+                        alt="Site desenvolvido por ReinanDev" width="500" height="500" loading="eager"
+                        fetchpriority="high">
+
+                    <div class="revenue-badge revenue-badge--left">
+                        <img src="/src/assets/img/svg/receita1.webp" srcset="
+    /src/assets/img/svg/receita1_168x81.avif 400w,
+    /src/assets/img/svg/receita1_168x81.avif 648w,
+    /src/assets/img/svg/receita1_168x81.avif 800w
+  " sizes="(max-width: 768px) 90vw, 648px" loading="lazy" decoding="async" width="207" height="100" alt="">
+                    </div>
+
+                    <div class="revenue-badge revenue-badge--right">
+                        <img src="/src/assets/img/svg/receita2.webp" srcset="
+    /src/assets/img/svg/receita2_cropped.avif 400w,
+    /src/assets/img/svg/receita2_cropped.avif 648w,
+    /src/assets/img/svg/receita2_cropped.avif 800w
+  " sizes="(max-width: 768px) 90vw, 648px" loading="lazy" decoding="async" width="102" height="45" alt="">
+                    </div>
+                </div>
+            </div>
+            <a href="#portfolio" class="scroll-down-btn" aria-label="Descer para a seção seguinte">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+                    <defs>
+                        <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e63946;stop-opacity:1" />
+                        </linearGradient>
+
+                        <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ddd;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path class="path-background" stroke="url(#grayGradient)" stroke-width="2" fill="none"
+                        stroke-linecap="butt" stroke-linejoin="miter"
+                        d="M18.324,4.428 L18.287,14.213 C18.287,24.313 10.1,32.5 0,32.5 C-10.1,32.5 -18.287,24.313 -18.287,14.213 L-18.287,-14.213 C-18.287,-24.313 -10.1,-32.5 0,-32.5 C10.1,-32.5 18.287,-24.313 18.287,-14.213 L18.287,7.376"
+                        transform="translate(36, 36)">
+                    </path>
+
+                    <path class="path-animated" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                        stroke-linecap="butt" stroke-linejoin="miter"
+                        d="M18.324,4.428 L18.287,14.213 C18.287,24.313 10.1,32.5 0,32.5 C-10.1,32.5 -18.287,24.313 -18.287,14.213 L-18.287,-14.213 C-18.287,-24.313 -10.1,-32.5 0,-32.5 C10.1,-32.5 18.287,-24.313 18.287,-14.213 L18.287,7.376"
+                        transform="translate(36, 36)">
+                    </path>
+                    <path stroke="#9a9a9a" stroke-width="2" fill="none" stroke-linecap="butt" stroke-linejoin="miter"
+                        d="M-0.106,2.98 C0.003,4.315 0.065,5.786 0.065,7.412 L0.006,16.626"
+                        transform="translate(36, 37.459)">
+                    </path>
+                    <path class="arrow-line" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                        stroke-linecap="butt" stroke-linejoin="miter"
+                        d="M-0.106,2.98 C0.003,4.315 0.065,5.786 0.065,7.412 L0.006,16.626"
+                        transform="translate(36, 37.459)">
+                    </path>
+
+                    <path class="arrow-head" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                        stroke-linecap="butt" stroke-linejoin="miter"
+                        d="M-24.452,3.003 L-18.043,9.497 L-11.649,3.104 L-11.549,3.004"
+                        transform="translate(54, 45.709)">
+                    </path>
+                </svg>
+            </a>
+        </section>
+        <section class="performance">
+            <div class="performance__container">
+                <div class="performance__header">
+                    <h2>Por Que Escolher <span>Nossas Landing Pages</span></h2>
+                    <p class="performance__subtitle">A diferença entre uma página comum e uma máquina de conversão que
+                        fatura 24/7</p>
+                </div>
+
+                <div class="performance__cards-wrapper">
+                    <article class="performance__card performance__card--featured">
+                        <div class="performance__card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Performance 100 Garantida</h3>
+                        <p>Dados do Google provam: cada segundo a menos aumenta conversões em até 80%. Suas páginas com
+                            pontuação máxima em todos os critérios.</p>
+
+                        <div class="performance__metrics-container">
+                            <ul class="performance__metrics">
+                                <li>
+                                    <div class="performance__circle" data-score="100">
+                                        <span>0</span>
+                                    </div>
+                                    <span class="performance__metric-label">Performance</span>
+                                </li>
+                                <li>
+                                    <div class="performance__circle" data-score="100">
+                                        <span>0</span>
+                                    </div>
+                                    <span class="performance__metric-label">Acessibilidade</span>
+                                </li>
+                                <li>
+                                    <div class="performance__circle" data-score="100">
+                                        <span>0</span>
+                                    </div>
+                                    <span class="performance__metric-label">Melhores Práticas</span>
+                                </li>
+                                <li>
+                                    <div class="performance__circle" data-score="100">
+                                        <span>0</span>
+                                    </div>
+                                    <span class="performance__metric-label">SEO</span>
+                                </li>
+                            </ul>
+
+                            <ul class="performance__legend">
+                                <li>
+                                    <div class="performance__legend-dot performance__legend-dot--red"></div>
+                                    <span>0-49</span>
+                                </li>
+                                <li>
+                                    <div class="performance__legend-dot performance__legend-dot--yellow"></div>
+                                    <span>50-89</span>
+                                </li>
+                                <li>
+                                    <div class="performance__legend-dot performance__legend-dot--green"></div>
+                                    <span>90-100</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="performance__card">
+                        <div class="performance__card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2.5" />
+                                <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h3>Domínio no Google</h3>
+                        <p>Páginas otimizadas para ranquear nas primeiras posições. Tráfego orgânico qualificado sem
+                            depender de anúncios pagos.</p>
+
+                        <div class="performance__google-content">
+                            <div class="performance__google-logo-container">
+                                <svg class="performance__google-logo" viewBox="0 0 272 92"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#4285F4"
+                                        d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" />
+                                    <path fill="#EA4335"
+                                        d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" />
+                                    <path fill="#FBBC05"
+                                        d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" />
+                                    <path fill="#4285F4" d="M225 3v65h-9.5V3h9.5z" />
+                                    <path fill="#34A853"
+                                        d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" />
+                                    <path fill="#EA4335"
+                                        d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z" />
+                                </svg>
+                            </div>
+
+                            <div class="performance__tools-grid">
+                                <div class="performance__tool-item">
+                                    <div class="performance__tool-icon performance__tool-icon--pagespeed">
+                                        <strong>100</strong>
+                                    </div>
+                                    <div class="performance__tool-info">
+                                        <div class="performance__tool-name">PageSpeed</div>
+                                        <div class="performance__tool-desc">Score máximo</div>
+                                    </div>
+                                </div>
+
+                                <div class="performance__tool-item">
+                                    <div class="performance__tool-icon performance__tool-icon--search">
+                                        <strong>#1</strong>
+                                    </div>
+                                    <div class="performance__tool-info">
+                                        <div class="performance__tool-name">Search Console</div>
+                                        <div class="performance__tool-desc">Primeiras posições</div>
+                                    </div>
+                                </div>
+
+                                <div class="performance__tool-item">
+                                    <div class="performance__tool-icon performance__tool-icon--analytics">
+                                        <strong>GA4</strong>
+                                    </div>
+                                    <div class="performance__tool-info">
+                                        <div class="performance__tool-name">Analytics</div>
+                                        <div class="performance__tool-desc">Rastreamento completo</div>
+                                    </div>
+                                </div>
+
+                                <div class="performance__tool-item">
+                                    <div class="performance__tool-icon performance__tool-icon--ads">
+                                        <strong>ROI</strong>
+                                    </div>
+                                    <div class="performance__tool-info">
+                                        <div class="performance__tool-name">Tag Manager</div>
+                                        <div class="performance__tool-desc">Conversões otimizadas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="performance__card">
+                        <div class="performance__card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Segurança Blindada</h3>
+                        <p>Proteção total contra fraudes, ataques e vazamentos. SSL certificado e monitoramento 24/7 da
+                            sua reputação online.</p>
+                        <div class="performance__security-badges">
+                            <span class="performance__badge">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                SSL Ativo
+                            </span>
+                            <span class="performance__badge">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                HTTPS
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="performance__card">
+                        <div class="performance__card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Solução Completa</h3>
+                        <p>Design + Desenvolvimento + Otimização + Segurança + Hospedagem. Tudo integrado e pronto para
+                            converter em tempo recorde.</p>
+                        <span class="performance__delivery-tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Entrega em 7 dias
+                        </span>
+                    </article>
+                </div>
+
+                <div class="performance__cta">
+                    <div class="performance__cta-content">
+                        <h3>Pronto Para Ter Uma Página de Elite?</h3>
+                        <p>Vamos criar juntos uma landing page que converte visitantes em clientes pagantes</p>
+                        <a href="https://api.whatsapp.com/send?phone=557999014074&text=Desejo%20saber%20mais." class="performance__cta-btn">
+                            Solicitar Orçamento Agora
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="#portfolio" class="scroll-down-btn" aria-label="Descer para a seção seguinte">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+                <defs>
+                    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e63946;stop-opacity:1" />
+                    </linearGradient>
+
+                    <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ddd;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path class="path-background" stroke="url(#grayGradient)" stroke-width="2" fill="none"
+                    stroke-linecap="butt" stroke-linejoin="miter"
+                    d="M18.324,4.428 L18.287,14.213 C18.287,24.313 10.1,32.5 0,32.5 C-10.1,32.5 -18.287,24.313 -18.287,14.213 L-18.287,-14.213 C-18.287,-24.313 -10.1,-32.5 0,-32.5 C10.1,-32.5 18.287,-24.313 18.287,-14.213 L18.287,7.376"
+                    transform="translate(36, 36)">
+                </path>
+
+                <path class="path-animated" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                    stroke-linecap="butt" stroke-linejoin="miter"
+                    d="M18.324,4.428 L18.287,14.213 C18.287,24.313 10.1,32.5 0,32.5 C-10.1,32.5 -18.287,24.313 -18.287,14.213 L-18.287,-14.213 C-18.287,-24.313 -10.1,-32.5 0,-32.5 C10.1,-32.5 18.287,-24.313 18.287,-14.213 L18.287,7.376"
+                    transform="translate(36, 36)">
+                </path>
+                <path stroke="#9a9a9a" stroke-width="2" fill="none" stroke-linecap="butt" stroke-linejoin="miter"
+                    d="M-0.106,2.98 C0.003,4.315 0.065,5.786 0.065,7.412 L0.006,16.626"
+                    transform="translate(36, 37.459)">
+                </path>
+                <path class="arrow-line" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                    stroke-linecap="butt" stroke-linejoin="miter"
+                    d="M-0.106,2.98 C0.003,4.315 0.065,5.786 0.065,7.412 L0.006,16.626"
+                    transform="translate(36, 37.459)">
+                </path>
+
+                <path class="arrow-head" stroke="url(#orangeGradient)" stroke-width="2" fill="none"
+                    stroke-linecap="butt" stroke-linejoin="miter"
+                    d="M-24.452,3.003 L-18.043,9.497 L-11.649,3.104 L-11.549,3.004" transform="translate(54, 45.709)">
+                </path>
+            </svg>
+        </a>
+
+        <section class="portfolio" id="portfolio">
+            <div class="portfolio__container">
+                <div>
+                    <h2><span>Criações</span> que geram resultados</h2>
+                    <p>Sites otimizados para o Google, que atraem mais visitantes, aumentam os contatos e ajudam seu
+                        negócio
+                        a vender mais.</p>
+                </div>
+
+                <ul class="portfolio__content">
+                    <li class="portfolio__card first-card">
+                        <div class="portfolio__card-image">
+                            <img class="portfolio-image long-image" src="/src/assets/img/svg/agulham.avif" srcset="
+    /src/assets/img/svg/agulham_600x1811.webp 400w,
+    /src/assets/img/svg/agulham_600x1811.webp 648w,
+    /src/assets/img/svg/agulham_600x1811.webp 800w
+  " sizes="(max-width: 768px) 90vw, 648px" width="648" height="1956" alt="Consultoria Empresarial" loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/400x2500/1a1f3a/00D4FF?text=Projeto+2'">
+                            <div class="scroll-indicator">
+                                ↓ Passe o mouse
+                            </div>
+                            <div class="view-more">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="portfolio__info">
+                            <h3>Escritório de Advocacia</h3>
+                            <p>Landing page completa com design moderno e formulário de contato integrado</p>
+                            <span class="portfolio__info-tag">Direito Trabalhista</span>
+                        </div>
+                    </li>
+
+                    <li class="portfolio__card">
+                        <div class="portfolio__card-image">
+                            <img class="portfolio-image long-image" src="/src/assets/img/svg/arcides-scaled.avif"
+                                srcset="
+    /src/assets/img/svg/arcides-scaled_2_324x1110-_1_.avif 324w,
+    /src/assets/img/svg/arcides-scaled_2_324x1110-_1_.avif 648w,
+    /src/assets/img/svg/arcides-scaled_2_324x1110-_1_.avif 800w
+  " sizes="(max-width: 768px) 90vw, 324px" width="324" height="1111" alt="Consultoria Empresarial" loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/400x2500/1a1f3a/00D4FF?text=Projeto+2'">
+
+                            <div class="scroll-indicator">
+                                ↓ Passe o mouse
+                            </div>
+                            <div class="view-more">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="portfolio__info">
+                            <h3>Consultoria Empresarial</h3>
+                            <p>Site institucional com foco em conversão e geração de leads qualificados</p>
+                            <span class="portfolio__info-tag">Consultoria</span>
+                        </div>
+                    </li>
+
+                    <li class="portfolio__card">
+                        <div class="portfolio__card-image">
+                            <img class="portfolio-image long-image" src="/src/assets/img/svg/mnbf-scaled.webp" srcset="
+    /src/assets/img/svg/mnbf-scaled_324x1463.avif 324w,
+    /src/assets/img/svg/mnbf-scaled_324x1463.avif 648w,
+    /src/assets/img/svg/mnbf-scaled_324x1463.avif 800w
+  " sizes="(max-width: 768px) 90vw, 324px" width="324" height="1463" alt="Clínica de Psicologia" loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/400x2500/1a1f3a/00D4FF?text=Projeto+3'">
+                            <div class="scroll-indicator">
+                                ↓ Passe o mouse
+                            </div>
+                            <div class="view-more">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="portfolio__info">
+                            <h3>Clínica de Psicologia</h3>
+                            <p>Portal completo com agendamento online e área do paciente</p>
+                            <span class="portfolio__info-tag">Saúde Mental</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="testimonials" id="avaliacoes">
+            <div class="testimonials__container">
+                <div class="testimonials__header">
+                    <div class="testimonials__badge">
+                        <div class="testimonials__avatars">
+                            <img src="/src/assets/img/svg/150 -12.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" class="testimonials__avatar">
+                            <img src="/src/assets/img/svg/150-5.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" class="testimonials__avatar">
+                            <img src="/src/assets/img/svg/150-33.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" class="testimonials__avatar">
+                            <img src="/src/assets/img/svg/150.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" class="testimonials__avatar">
+                            <img src="/src/assets/img/svg/150-13.avif" width="150" height="150" loading="lazy"
+                                alt="Cliente" class="testimonials__avatar">
+                            <img src="/src/assets/img/svg/150-20.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" class="testimonials__avatar">
+                        </div>
+                        <span class="testimonials__count">+200 EMPRESAS ATENDIDAS</span>
+                    </div>
+                    <h2 class="testimonials__title">O que nossos clientes dizem</h2>
+                    <p class="testimonials__subtitle">Resultados reais na voz de quem já confiou na gente.</p>
+                </div>
+
+                <div class="testimonials__grid">
+                    <article>
+                        <h3>"de ROI 1,7 para ROI 6 com as páginas da ReinanDev"</h3>
+                        <p>Estou com a ReinanDev a 8 meses, toda semana faço 2 LandingPages com eles, consegui escalar
+                            minha operação de ROI 1,7 para ROI 6 com as páginas da ReinanDev. Velocidade, estrutura, e
+                            designer. São pra mim os melhores pontos da ReinanDev.</p>
+                        <div>
+                            <img src="/src/assets/img/svg/150 -12.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Allan Ribeiro">
+                            <div>
+                                <h4>Allan Ribeiro</h4>
+                                <p>TOP #1 da Kirvano</p>
+                            </div>
+                        </div>
+                        <span>ROI de 1.7 para 6.0</span>
+                    </article>
+
+                    <article>
+                        <h3>"fundamentais para aumentar minhas vendas"</h3>
+                        <p>
+                            Os meninos da ReinanDev criam páginas otimizada para os meus produto que trouxe resultados
+                            rápidos. A qualidade do site e a atenção aos detalhes foram fundamentais para aumentar
+                            minhas
+                            vendas.
+                        </p>
+                        <div>
+                            <img src="/src/assets/img/svg/150-5.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Flávia">
+                            <div>
+                                <h4>@flamaedetres</h4>
+                                <p>Proprietária da Fé Flix</p>
+                            </div>
+                        </div>
+                        <span>+340% em Vendas</span>
+                    </article>
+
+                    <article>
+                        <h3>"Ter um site aumentou minhas vendas já no primeiro mês"</h3>
+                        <p>
+                            Trabalhar com a ReinanDev foi essencial para fazer minha logística de dropshipping
+                            alavancar.
+                            Tenho uma loja rápida, sendo tudo totalmente mapeada, tudo isso configurado pela ReinanDev.
+                            Ter
+                            um site aumentou minhas vendas já no primeiro em 62%.
+                        </p>
+                        <div>
+                            <img src="/src/assets/img/svg/150-33.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Celso">
+                            <div>
+                                <h4>Celso</h4>
+                                <p>Dropshipping Fliperama</p>
+                            </div>
+                        </div>
+                        <span>+62% no 1º Mês</span>
+                    </article>
+
+                    <article>
+                        <h3>"Antes eu dependia 100% de indicações"</h3>
+                        <p>
+                            Hoje minha agenda está sempre cheia com novos pacientes que me encontram pelo Google. Mudou
+                            completamente meu negócio.
+                        </p>
+                        <div>
+                            <img src="/src/assets/img/svg/150.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Dra. Mariana Silva">
+                            <div>
+                                <h4>Dra. Mariana Silva</h4>
+                                <p>Psicóloga Clínica</p>
+                            </div>
+                        </div>
+                        <span>Agenda Lotada</span>
+                    </article>
+
+                    <article>
+                        <h3>"A página é tão profissional que os clientes já chegam confiando"</h3>
+                        <p>
+                            O formulário inteligente filtra casos qualificados automaticamente.
+                        </p>
+                        <div>
+                            <img src="/src/assets/img/svg/150-13.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Ricardo Almeida">
+                            <div>
+                                <h4>Ricardo Almeida</h4>
+                                <p>Advogado Trabalhista</p>
+                            </div>
+                        </div>
+                        <span>+250% Consultas</span>
+                    </article>
+
+                    <article>
+                        <h3>"Investimento que se paga sozinho"</h3>
+                        <p>
+                            Em 2 meses já havia faturado 5x o valor investido. A página trabalha por mim 24/7 trazendo
+                            novos clientes.
+                        </p>
+                        <div>
+                            <img src="/src/assets/img/svg/150-20.avif" width="150" height="150" loading="lazy"
+                                fetchpriority="low" alt="Cliente" alt="Juliana Ferreira">
+                            <div>
+                                <h4>Juliana Ferreira</h4>
+                                <p>Nutricionista Esportiva</p>
+                            </div>
+                        </div>
+                        <span>ROI 500%</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="sobre">
+            <div class="about__google-logo" id="googleLogo">
+                <img src="/src/assets/img/svg/Google-Icon.webp" srcset="
+    /src/assets/img/svg/Google-Icon (1).avif 400w,
+    /src/assets/img/svg/Google-Icon (1).avif 648w,
+    /src/assets/img/svg/Google-Icon (1).avif 800w
+  " sizes="(max-width: 768px) 90vw, 648px" loading="lazy" decoding="async" width="146.97" height="146.97"
+                    alt="Google Icon">
+            </div>
+
+            <div class="about__container">
+                <div class="about__content">
+                    <div class="about__image-wrapper">
+                        <div class="about__image-container">
+                            <img src="/src/assets/img/svg/reinan-de-terno.jpeg" alt="Reinan - Desenvolvedor Web"
+                                class="about__image" srcset="
+    /src/assets/img/svg/reinan-de-terno_340x595.avif 400w,
+    /src/assets/img/svg/reinan-de-terno_340x595.avif 648w,
+    /src/assets/img/svg/reinan-de-terno_340x595.avif 800w
+  " sizes="(max-width: 768px) 90vw, 648px" loading="lazy" decoding="async" width="363" height="520">
+                            <div class="about__image-border"></div>
+                        </div>
+                        <div class="about__badge">
+                            Desenvolvedor Profissional
+                        </div>
+                    </div>
+
+                    <div class="about__text">
+                        <div class="about__pretitle">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                    fill="currentColor" />
+                            </svg>
+                            Conheça o Desenvolvedor
+                        </div>
+
+                        <h2 class="about__title">
+                            Reinan <span>Silveira</span>
+                        </h2>
+
+                        <p class="about__subtitle">
+                            Desenvolvimento web focado em performance, conversão e crescimento real — para empresas que
+                            não
+                            podem perder oportunidades por causa de sites lentos ou mal estruturados.
+                        </p>
+
+                        <p class="about__description">
+                            Reinan é um desenvolvedor especializado em <strong>performance, UX e otimização de
+                                conversão</strong>.
+                            Formado em <span class="about__highlight">Análise e Desenvolvimento de Sistemas</span>,
+                            aplica
+                            práticas avançadas de programação e design estratégico para transformar páginas em ativos
+                            que
+                            geram resultados.
+                        </p>
+
+                        <p class="about__description">
+                            Com mais de 200 projetos entregues, construiu um portfólio que comprova aumento de
+                            velocidade,
+                            engajamento e faturamento para diversos segmentos.
+                            <strong>Cada projeto é executado com foco em eficiência técnica, clareza estratégica e
+                                resultados reais.</strong>
+                        </p>
+
+                        <div class="about__stats">
+                            <div class="about__stat">
+                                <div class="about__stat-number">200+</div>
+                                <div class="about__stat-label">Projetos Entregues</div>
+                            </div>
+                            <div class="about__stat">
+                                <div class="about__stat-number">100/100</div>
+                                <div class="about__stat-label">Performance Google</div>
+                            </div>
+                            <div class="about__stat">
+                                <div class="about__stat-number">340%</div>
+                                <div class="about__stat-label">Aumento Médio em Conversões</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="cta-monster">
+            <div class="cta__container">
+                <div>
+                    <h2>
+                        Vamos conversar sobre <span class="destaque">o seu site?</span>
+                    </h2>
+                    <p>
+                        Não perca mais tempo!
+                    </p>
+                    <p>
+                        Clique no botão abaixo e peça já seu orçamento.<br>
+                        Vamos criar o site perfeito para o seu negócio.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=557999014074&text=Desejo%20saber%20mais."
+                        target="_blank" class="cta-final__button" id="whats_tempo">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+
+            <div class="cta__icons">
+                <div id="icon-wordpress">
+                    <img src="https://monsterartworks.com.br/wp-content/uploads/2024/09/wordpress.webp" alt="WordPress">
+                </div>
+
+                <div id="icon-react">
+                    <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React">
+                </div>
+
+                <div id="icon-photoshop">
+                    <img src="https://monsterartworks.com.br/wp-content/uploads/2024/09/photoshop.webp" alt="Photoshop">
+                </div>
+            </div>
+        </section>
+
+
+        <section class="faq" id="faq">
+            <div class="faq__container">
+                <div class="faq__header">
+                    <h2 class="faq__title">Tudo Que Você <span>Precisa Saber</span></h2>
+                    <p class="faq__subtitle">Respostas diretas para as perguntas mais comuns. Se não encontrar aqui,
+                        fale conosco!</p>
+                </div>
+
+                <ul class="faq__list">
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Por que vocês não usam Elementor, WordPress ou construtores
+                                prontos?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Simples: <strong>performance mata conversão</strong>. Sites feitos em construtores
+                                    carregam toneladas de código desnecessário, scripts pesados e plugins que deixam sua
+                                    página lenta. O Google prova que <span class="faq__highlight">cada segundo a
+                                        mais</span>
+                                    de carregamento reduz suas vendas em até 20%.
+                                    Nosso código é <strong>100% limpo, otimizado e feito à mão</strong>. Resultado?
+                                    Pontuação máxima no Google PageSpeed, carregamento instantâneo e mais vendas no seu
+                                    bolso. Não aceitamos mediocridade quando se trata do seu dinheiro.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Em quanto tempo minha landing page fica pronta?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    <span class="faq__highlight">7 dias úteis</span> e sua página está no ar, vendendo.
+                                    Esse
+                                    prazo inclui design exclusivo, desenvolvimento, otimização completa, testes de
+                                    performance e publicação.
+                                    Diferente de agências que levam meses enrolando, aqui você tem <strong>agilidade sem
+                                        perder qualidade</strong>. Sua concorrência não vai esperar, e nós também não.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Preciso pagar mensalidade ou renovação?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    <strong>ZERO mensalidade.</strong> Você paga <span class="faq__highlight">R$ 497 uma
+                                        única vez</span> e sua landing page é 100% sua para sempre. Sem pegadinhas, sem
+                                    cobranças escondidas, sem renovações anuais.
+                                    Hospedagem premium está inclusa? Sim. Domínio personalizado? Sim. Suporte técnico?
+                                    Também. Tudo incluído no investimento único. Porque acreditamos em transparência
+                                    total.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Minha página vai aparecer no Google mesmo?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Não só vai aparecer - vai <strong>dominar</strong>. Todas as nossas páginas são
+                                    otimizadas com SEO profissional: meta tags perfeitas, schema markup, velocidade de
+                                    carregamento instantânea, responsividade impecável e estrutura validada pelo próprio
+                                    Google.
+                                    Resultado? <span class="faq__highlight">Pontuação 100/100</span> em Performance,
+                                    SEO,
+                                    Acessibilidade e Melhores Práticas. Isso significa tráfego orgânico qualificado
+                                    chegando
+                                    sem você gastar um centavo em anúncios.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">E se eu quiser fazer mudanças depois?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Você tem <strong>30 dias de revisões ilimitadas</strong> inclusos após a entrega.
+                                    Quer
+                                    ajustar um texto? Trocar uma imagem? Mudar uma cor? Sem problemas e sem custo
+                                    adicional.
+                                    Depois desse período, oferecemos pacotes de manutenção flexíveis ou cobramos apenas
+                                    pelas alterações que você solicitar. Nada de te prender em contratos eternos - você
+                                    tem
+                                    liberdade total.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Vocês criam o design ou eu preciso enviar pronto?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Criamos <strong>tudo do zero</strong> para você. Design exclusivo, identidade visual
+                                    alinhada à sua marca, copywriting persuasivo e estrutura pensada para converter.
+                                    Você só precisa nos contar sobre seu negócio e objetivos. Nossa equipe de designers
+                                    e
+                                    copywriters cria uma landing page <span class="faq__highlight">única e otimizada
+                                        para
+                                        vendas</span>. Se você já tem materiais (logo, fotos, textos), melhor ainda -
+                                    vamos
+                                    usar e potencializar.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Funciona no celular? E em todos os navegadores?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    <strong>Absolutamente perfeito em todos os dispositivos.</strong> Celular, tablet,
+                                    desktop - sua página vai carregar rápido e bonita em qualquer tela. E sim, funciona
+                                    em
+                                    Chrome, Safari, Firefox, Edge e todos os navegadores modernos.
+                                    Mais de <span class="faq__highlight">70% das vendas online</span> vêm de mobile
+                                    hoje.
+                                    Por isso testamos exaustivamente cada pixel em diferentes dispositivos antes de
+                                    entregar. Seu cliente vai ter a melhor experiência, sempre.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Como funciona a integração com formulários e pagamentos?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Integramos com <strong>todas as principais ferramentas</strong>: WhatsApp, E-mail,
+                                    Google Sheets, Hotmart, Eduzz, Monetizze, Kiwify, Stripe, PagSeguro e muito mais.
+                                    Os leads chegam direto no seu WhatsApp ou e-mail em tempo real. Vendas são
+                                    rastreadas
+                                    automaticamente. Tudo configurado e testado por nós - você só recebe clientes
+                                    prontos
+                                    para comprar.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="faq__item">
+                        <div class="faq__question">
+                            <h3 class="faq__question-text">Qual a garantia de que vai funcionar para o MEU negócio?</h3>
+                            <div class="faq__icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq__answer">
+                            <div>
+                                <p class="faq__answer-text">
+                                    Já entregamos mais de <span class="faq__highlight">200+ projetos</span> em nichos
+                                    variados: advocacia, consultoria, saúde, e-commerce, infoprodutos, serviços locais e
+                                    muito mais. Nossos clientes relatam aumentos médios de 340% em conversões.
+                                    Trabalhamos com estratégias comprovadas de copywriting, design persuasivo e
+                                    arquitetura
+                                    de conversão. Se funciona para advogados, psicólogos, consultores e e-commerces,
+                                    <strong>vai funcionar para você também</strong>. E se não estiver satisfeito? Temos
+                                    garantia de reembolso nos primeiros 7 dias.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="faq__cta">
+                    <h3 class="faq__cta-title">Ainda tem dúvidas?</h3>
+                    <p class="faq__cta-text">Fale diretamente com nossa equipe. Vamos te mostrar exatamente como uma
+                        landing page profissional pode transformar seus resultados.</p>
+                    <a href="https://api.whatsapp.com/send?phone=557999014074&text=Desejo%20saber%20mais." class="faq__cta-btn">
+                        Falar Com Especialista Agora
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <a href="https://api.whatsapp.com/send?phone=557999014074&text=Desejo%20saber%20mais." class="whatsapp-float" target="_blank"
+            aria-label="WhatsApp">
+            <img src="/src/assets/img/svg/WhatsApp.svg" alt="WhatsApp" width="32" height="32" />
+        </a>
+    </main>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="/src/assets/js/performance.js" defer></script>
+<script src="/src/assets/js/header.js" defer></script>
+<script src="/src/assets/js/about.js" defer></script>
+<script src="/src/assets/js/card.js" defer></script>
+<script src="/src/assets/js/faq.js" defer></script>
+<script src="/src/assets/js/portifolio.js" defer></script>
+
+</html>

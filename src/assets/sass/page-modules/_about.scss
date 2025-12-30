@@ -1,0 +1,353 @@
+@use '../abstract' as *;
+
+.about {
+    background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
+    padding: 120px 20px;
+    position: relative;
+
+    &__container {
+        max-width: 1320px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__google-logo {
+        position: absolute;
+        top: -54px;
+        left: 36%;
+        width: 100px;
+        height: 100px;
+        pointer-events: none;
+        z-index: 12;
+        will-change: transform, filter, opacity;
+        transition: .3s ease-in-out;
+        transition: none;
+
+        img,
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 80px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__image-wrapper {
+        flex: 1;
+        min-width: 350px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__image-container {
+        position: relative;
+        width: 420px;
+        height: 520px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.15),
+            0 10px 40px rgba(255, 69, 0, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.2),
+                0 15px 50px rgba(255, 69, 0, 0.2);
+
+            .about__image {
+                filter: contrast(1.1) brightness(1.05) saturate(1.15);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                    rgba(255, 69, 0, 0.1) 0%,
+                    rgba(255, 107, 53, 0.05) 50%,
+                    transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: contrast(1.05) brightness(1.02) saturate(1.1);
+        transition: filter 0.5s ease;
+    }
+
+    &__image-border {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        right: 15px;
+        bottom: 15px;
+        border: 3px solid $orange;
+        border-radius: 24px;
+        z-index: -1;
+        opacity: 0.3;
+    }
+
+    &__badge {
+        position: absolute;
+        bottom: 30px;
+        right: -20px;
+        background: linear-gradient(135deg, $orange, var(--orange-light));
+        color: $color-white;
+        white-space: nowrap;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: $font-size-sm-two;
+        font-weight: $font-weight-bold;
+        box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+        z-index: 2;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    &__text {
+        flex: 1.2;
+        padding-left: 20px;
+    }
+
+    &__pretitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 107, 53, 0.1));
+        color: $orange;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: $font-size-sm-one;
+        font-weight: $font-weight-bold;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        border: 1px solid rgba(255, 69, 0, 0.2);
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__title {
+        font-family: $primary-font;
+        font-size: 48px;
+        font-weight: 800;
+        color: #1a1a2e;
+        margin-bottom: 20px;
+        line-height: 1.2;
+
+        span {
+            background: linear-gradient(135deg, $orange, var(--orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    &__subtitle {
+        font-size: 22px;
+        font-weight: $font-weight-medium-one;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+
+    &__description {
+        font-size: $font-size-md-one;
+        color: #4a5568;
+        line-height: 1.8;
+        margin-bottom: 20px;
+
+        strong {
+            color: $orange;
+            font-weight: $font-weight-medium-one;
+        }
+    }
+
+    &__highlight {
+        display: inline-block;
+        background: rgba(255, 69, 0, 0.1);
+        color: $orange;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-weight: $font-weight-medium-one;
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    &__stat {
+        text-align: center;
+        padding: 25px 20px;
+        background: $color-white;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 69, 0, 0.1);
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 69, 0, 0.15);
+            border-color: $orange;
+        }
+    }
+
+    &__stat-number {
+        font-family: $primary-font;
+        font-size: 36px;
+        font-weight: 800;
+        background: linear-gradient(135deg, $orange, var(--orange-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+    }
+
+    &__stat-label {
+        font-size: $font-size-sm-two;
+        color: #64748b;
+        font-weight: $font-weight-medium;
+    }
+
+    @include max(1024) {
+        &__content {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        &__image-container {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        &__text {
+            padding-left: 0;
+            text-align: center;
+        }
+
+        &__stats {
+            max-width: 600px;
+            margin: 40px auto 0;
+        }
+    }
+
+    @include max(768) {
+        padding: 80px 15px;
+
+        &__google-logo {
+            width: 100px;
+            height: 100px;
+            top: -210px;
+        }
+
+        &__title {
+            font-size: 36px;
+        }
+
+        &__subtitle {
+            font-size: 19px;
+        }
+
+        &__description {
+            font-size: $font-size-md;
+        }
+
+        &__image-container {
+            height: 450px;
+        }
+
+        &__stats {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        &__badge {
+            right: 34%;
+            transform: translateX(50%);
+            bottom: -20px;
+        }
+    }
+
+    @include max(480) {
+        &__title {
+            font-size: 28px;
+        }
+
+        &__subtitle {
+            font-size: $font-size-md-one;
+        }
+
+        &__image-container {
+            height: 400px;
+        }
+
+        &__stat-number {
+            font-size: 28px;
+        }
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

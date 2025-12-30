@@ -1,0 +1,318 @@
+@use '../abstract' as *;
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    @include flex(center, center);
+    flex-direction: column;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(/src/assets/img/svg/montanhazon.jpg);
+
+    @include max(800) {
+        height: 100%;
+        padding: 5rem 0 0 0;
+        background-image: url(/src/assets/img/svg/montanha_11zon.jpg);
+    }
+
+    &>.scroll-down-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 8rem;
+        width: 100%;
+        cursor: pointer;
+        z-index: 1;
+
+        @include max(800) {
+            position: initial;
+            margin-top: 4rem;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(circle, rgba(255, 69, 0, 0.35) 1px, transparent 1px),
+            radial-gradient(circle, rgba(255, 100, 0, 0.28) 1.5px, transparent 1.5px),
+            radial-gradient(circle, rgba(227, 6, 19, 0.3) 1px, transparent 1px);
+        background-size: 180px 220px, 240px 280px, 200px 260px;
+        background-position: 0 0, 80px 100px, 40px 60px;
+        animation: rainFall 20s linear infinite;
+        z-index: 1;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &__container {
+        max-width: 1320px;
+        padding: 4rem 0 0 4rem;
+        @include flex(center, space-around);
+        position: relative;
+        z-index: 2;
+
+        @include max(1000) {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &>div:first-child {
+            width: 47%;
+
+            @include max(800) {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .highlight {
+                background-image: linear-gradient(80deg, #ff6b35, #e63946);
+                background-clip: text;
+                -webkit-text-fill-color: rgba(0, 0, 0, 0);
+                font-size: 6rem;
+
+                @include max(800) {
+                    font-size: 3rem
+                }
+            }
+
+            &>h2 {
+                @include font-ultra-xl;
+                line-height: 1.4;
+                color: $color-white;
+                margin-bottom: 2.5rem;
+
+                @include max(800) {
+                    font-size: 3rem
+                }
+            }
+
+            &>p {
+                @include font-title-lg;
+                line-height: 1.7;
+                color: #EAEAEA;
+                margin-bottom: 4.8rem;
+
+                @include max (800) {
+                    font-size: 16px;
+                }
+            }
+
+            &>a {
+                @include font-content-base;
+                margin-top: 1.5rem;
+                background: linear-gradient(135deg, #E30613 0%, #FF1744 50%, #E30613 100%);
+                color: #fff;
+                padding: 1.8rem 4rem;
+                border-radius: 7px;
+                text-decoration: none;
+                align-items: center;
+                transition: all .3s ease;
+                border: none;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 17px;
+                box-shadow: 0 10px 30px rgba(255, 45, 0, .5), 0 0 0 4px rgba(255, 69, 0, .2);
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                width: 73%;
+                display: flex;
+                justify-content: center;
+
+                @include max(800) {
+                    width: auto;
+                    font-size: 1.2rem;
+                    gap: .3rem;
+                }
+
+                &:hover {
+                    transform: translateY(-3px);
+                    box-shadow:
+                        0 15px 40px rgba(227, 6, 19, 0.7),
+                        0 8px 20px rgba(255, 23, 68, 0.5),
+                        0 0 0 6px rgba(227, 6, 19, 0.3),
+                        0 0 30px rgba(255, 23, 68, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(-1px);
+                    box-shadow:
+                        0 8px 25px rgba(227, 6, 19, 0.6),
+                        0 4px 12px rgba(255, 23, 68, 0.4),
+                        0 0 0 4px rgba(227, 6, 19, 0.25);
+                }
+            }
+        }
+    }
+
+    // Wrapper para os dispositivos e badges
+    &__devices-wrapper {
+        position: relative;
+        width: 50%;
+        height: 500px;
+
+        @include max(800) {
+            width: 100%;
+            height: auto;
+            order: -1;
+        }
+
+        &>img {
+            &:first-of-type {
+                position: absolute;
+                top: 17px;
+                left: 59px;
+                width: 500px;
+                opacity: .9;
+                z-index: 1;
+                object-fit: contain;
+                filter: drop-shadow(0 -2px 0px rgba(0, 0, 0, 0.5)) drop-shadow(0 3px 80px rgba(255, 69, 0, 0.15)) drop-shadow(0 5px 15px rgba(255, 69, 0, 0.1));
+
+                @include max(800) {
+                    width: 400px;
+                    position: initial;
+                }
+            }
+
+            &:nth-of-type(2) {
+                width: 68%;
+                position: absolute;
+                transform: rotate(35deg);
+                z-index: 1;
+                object-fit: contain;
+                right: -78px;
+                top: 86px;
+                filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) drop-shadow(0 8px 20px rgba(255, 69, 0, 0.12)) drop-shadow(0 4px 10px rgba(255, 69, 0, 0.08));
+            }
+        }
+    }
+}
+
+// Badges de Receita Flutuantes
+.revenue-badge {
+    position: absolute;
+
+    img {
+        object-fit: contain;
+        opacity: .8;
+    }
+
+    &--left {
+        top: 310px;
+        left: 11px;
+        animation: floatLeftSide 12s ease-in-out infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        &>img {
+            width: 128px;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+    }
+
+    &--right {
+        top: 150px;
+        left: 75%;
+        animation: floatRightSide 12s ease-in-out infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        &>img {
+            width: 94px;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+    }
+}
+
+// Animações
+@keyframes floatLeftSide {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(-1px, -2px, 0);
+    }
+
+    50% {
+        transform: translate3d(-2px, -4px, 0);
+    }
+
+    75% {
+        transform: translate3d(-1px, -2px, 0);
+    }
+}
+
+
+@keyframes floatRightSide {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(3px, -6px, 0);
+    }
+
+    50% {
+        transform: translate3d(5px, -10px, 0);
+    }
+
+    75% {
+        transform: translate3d(3px, -6px, 0);
+    }
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}

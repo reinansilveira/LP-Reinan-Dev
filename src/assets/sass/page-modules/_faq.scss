@@ -1,0 +1,300 @@
+@use '../abstract' as *;
+
+.faq {
+    background: #1F2937;
+    padding: 100px 20px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+            radial-gradient(circle at 15% 20%, rgba(255, 69, 0, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 85% 80%, rgba(255, 107, 53, 0.08) 0%, transparent 40%);
+        pointer-events: none;
+    }
+
+    &__container {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+
+        @include max(800) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__header {
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 7rem;
+        max-width: 60%;
+
+        @include max(800) {
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 600;
+        font-family: $primary-font;
+        margin-bottom: 1rem;
+        color: $color-white;
+
+        span {
+            background-image: linear-gradient(80deg, #ff6b35, #e63946);
+            background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+
+        @include max(800) {
+            font-size: 2.3rem;
+        }
+    }
+
+    &__subtitle {
+        font-family: $primary-font;
+        font-size: 2rem;
+        font-weight: 400;
+        color: $color-white;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__item {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            border-color: rgba(255, 69, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(255, 69, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        &.active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: $orange;
+            box-shadow: 0 8px 40px rgba(255, 69, 0, 0.25);
+
+            .faq__icon {
+                transform: rotate(180deg);
+            }
+
+            .faq__answer {
+                overflow: hidden;
+                max-width: 100rem;
+                transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+                &>div {
+                    padding: 0 3.5rem 3.2rem 3.5rem;
+
+                    @include max(800) {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 35px;
+        cursor: pointer;
+        user-select: none;
+        gap: 25px;
+    }
+
+    &__question-text {
+        font-family: $primary-font;
+        font-size: 18px;
+        font-weight: $font-weight-bold;
+        color: $color-white;
+        line-height: 1.5;
+        flex: 1;
+    }
+
+    &__icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        background: linear-gradient(135deg, $orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+
+        svg {
+            width: 18px;
+            height: 18px;
+            stroke: $color-white;
+            stroke-width: 3;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    &__answer {
+        max-height: 0;
+
+    }
+
+    &__answer-text {
+        font-size: $font-size-md;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+        font-weight: $font-weight-regular;
+
+        strong {
+            color: var(--orange-light);
+            font-weight: $font-weight-medium-one;
+        }
+    }
+
+    &__highlight {
+        display: inline-block;
+        background: rgba(255, 69, 0, 0.15);
+        color: var(--orange-light);
+        padding: 3px 12px;
+        border-radius: 6px;
+        font-weight: $font-weight-medium-one;
+        margin: 0 2px;
+    }
+
+    &__cta {
+        margin-top: 70px;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 107, 53, 0.1));
+        padding: 50px 40px;
+        border-radius: 24px;
+        border: 2px solid rgba(255, 69, 0, 0.2);
+    }
+
+    &__cta-title {
+        font-family: $primary-font;
+        font-size: 32px;
+        font-weight: 800;
+        color: $color-white;
+        margin-bottom: 15px;
+    }
+
+    &__cta-text {
+        font-size: $font-size-md-one;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(135deg, $orange, var(--orange-light));
+        color: $color-white;
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-size: $font-size-md-one;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 30px rgba(255, 69, 0, 0.4);
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 69, 0, 0.5);
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    @include max(768) {
+        padding: 60px 15px;
+
+        &__subtitle {
+            font-size: $font-size-md;
+        }
+
+        &__question {
+            padding: 22px 25px;
+        }
+
+        &__question-text {
+            font-size: $font-size-md;
+        }
+
+        &__item.active &__answer {
+            padding: 0 25px 25px 25px;
+        }
+
+        &__answer-text {
+            font-size: $font-size-sm-three;
+        }
+
+        &__cta {
+            padding: 40px 25px;
+        }
+
+        &__cta-title {
+            font-size: 26px;
+        }
+
+        &__cta-text {
+            font-size: $font-size-sm-three;
+        }
+
+        &__cta-btn {
+            padding: 16px 35px;
+            font-size: $font-size-md;
+        }
+    }
+
+    @include max(480) {
+
+        &__question {
+            padding: 18px 20px;
+            gap: 15px;
+        }
+
+        &__question-text {
+            font-size: $font-size-sm-three;
+        }
+
+        &__icon {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+        }
+
+        &__cta-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

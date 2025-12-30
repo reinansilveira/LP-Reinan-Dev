@@ -1,0 +1,276 @@
+@use '../abstract' as *;
+
+.testimonials {
+    padding: 8rem 2rem;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(/src/assets/img/svg/montanhazon.jpg);
+
+    @include max(800) {
+        background-image: url(/src/assets/img/svg/montanha_11zon.jpg);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+        z-index: 1;
+        pointer-events: none;
+    }
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(circle, rgba(255, 69, 0, 0.35) 1px, transparent 1px),
+            radial-gradient(circle, rgba(255, 100, 0, 0.28) 1.5px, transparent 1.5px),
+            radial-gradient(circle, rgba(227, 6, 19, 0.3) 1px, transparent 1px);
+        background-size: 180px 220px, 240px 280px, 200px 260px;
+        background-position: 0 0, 80px 100px, 40px 60px;
+        animation: rainFall 20s linear infinite;
+        z-index: 1;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    @include max(758) {
+        padding: 60px 15px;
+    }
+
+    &__container {
+        max-width: 1320px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        @include max(1000) {
+            flex-direction: column;
+        }
+    }
+
+    &__avatars {
+        display: flex;
+        align-items: center;
+    }
+
+    &__avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid $color-white;
+        transition: .2s ease-in-out;
+        margin-left: -15px;
+        object-fit: cover;
+
+        :first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            border: 3px solid transparent;
+            background-image:
+                linear-gradient(#fff, #fff),
+                linear-gradient(80deg, #ff6b35, #e63946);
+            background-clip: padding-box, border-box;
+            background-origin: border-box;
+            transform: scale(1.4);
+            z-index: 10;
+        }
+    }
+
+    &__count {
+        font-family: $primary-font;
+        font-size: 2rem;
+        font-weight: 700;
+        background-image: linear-gradient(80deg, #ff6b35, #e63946);
+        background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 600;
+        font-family: $primary-font;
+        margin-bottom: 1rem;
+        color: $color-white;
+
+        @include max (768) {
+            font-size: 2.3rem;
+        }
+    }
+
+    &__subtitle {
+        font-family: $primary-font;
+        font-size: 2rem;
+        font-weight: 400;
+        color: $color-white;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+
+        @include max (768) {
+            font-size: 16px;
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 50px;
+
+        @include max (768) {
+            gap: 20px;
+        }
+
+        &>article {
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3.5rem 3.5rem 2rem 3.5rem;
+            border: 1px solid rgba(255, 69, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+            @include max(1200) {
+                flex: 1 1 calc(50% - 15px);
+            }
+
+            @include max (768) {
+                padding: 25px;
+                flex: 1 1 100%;
+                min-width: unset;
+            }
+
+            &::before {
+                // AQUI: adicionei o & antes de ::before
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0; // Adicionei também o right: 0
+                width: 100%;
+                height: 4px;
+                background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 100%);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            &:hover {
+                transform: translateY(-0.5rem);
+                box-shadow: 0 1rem 2.5rem rgba(255, 69, 0, 0.2);
+                border-color: rgba(255, 69, 0, 0.3);
+
+                &::before {
+                    transform: scaleX(1);
+                }
+            }
+
+            &>h3 {
+                font-family: $primary-font;
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: #1a1a1a;
+                margin-bottom: 3px;
+            }
+
+            &>p {
+                font-size: 1.7rem;
+                font-weight: 400;
+                font-family: $primary-font;
+                color: #424242;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+
+            &>span {
+                display: inline-block;
+                padding: .5rem .8rem;
+                background: linear-gradient(135deg, #FF4500, var(--orange-light));
+                color: #fff;
+                border-radius: 20px;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 2rem;
+                font-family: $primary-font;
+            }
+
+            &>div {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                &>img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid transparent;
+                    background-image:
+                        linear-gradient(#fff, #fff),
+                        linear-gradient(80deg, #ff6b35, #e63946);
+                    background-clip: padding-box, border-box;
+                    background-origin: border-box;
+                }
+
+                &>div {
+                    flex: 1;
+
+                    &>h4 {
+                        font-family: $primary-font;
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: #1a1a1a;
+                        margin-bottom: 3px;
+                    }
+
+                    &>p {
+                        font-size: 14px;
+                        color: #64748b;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
